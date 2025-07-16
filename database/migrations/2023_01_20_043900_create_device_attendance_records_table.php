@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('device_attendance_records', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('card_no', 10)->default('0000000000');
+            $table->string('name', 15)->nullable();
+            $table->unsignedBigInteger('uid'); // Kolom untuk user ID
+            $table->unsignedBigInteger('employee_id'); // Kolom untuk employee ID
+            $table->string('state'); // Kolom untuk state
+            $table->timestamp('timestamp'); // Kolom untuk timestamp
+            $table->string('type'); // Kolom untuk type
+            $table->timestamps(); // Kolom created_at dan updated_at
         });
     }
 

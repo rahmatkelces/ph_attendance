@@ -7,7 +7,7 @@
             <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
                 <div class="ml-4 text-lg leading-7 font-semibold"><a href="#" class=" text-gray-900 dark:text-white">
-                Laravel Zkteco <b>( iclock9000-G )</b>
+                <b>Pizzahut Indonesia</b>
                 </a></div>
             </div>
             <br/>
@@ -26,63 +26,67 @@
             <div class="flex items-center">
                 <br/><br/>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Add user to device</a></div>
+                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://ph_posmanager.phsmk.id" class="underline text-gray-900 dark:text-white">Add user to device</a></div>
             </div>
             <hr/>
             <div class="ml-12">
-                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                  <form action="{{ route('machine.devicesetuser') }}" method="post">
+            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                <form action="{{ route('machine.devicesetuser') }}" method="post">
                     @csrf
-                  <div class="row">
-                    <div class="col-3">
-                        UID :
+                    <div class="row mb-3">
+                        <label for="uid" class="col-3 col-form-label">UID :</label>
+                        <div class="col-9">
+                            <!-- <input type="text" name="uid" id="uid" class="form-control" placeholder="Enter UID" required /> -->
+                            <input type="text" name="uid" id="uid" class="form-control" value="{{ $lastUid }}" disabled />
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <input type="text" name="uid" class="form-control" required/>
+                    
+                    <div class="row mb-3">
+                        <label for="userid" class="col-3 col-form-label">User ID :</label>
+                        <div class="col-9">
+                            <input type="text" name="userid" id="userid" class="form-control" placeholder="Enter User ID" required />
+                        </div>
                     </div>
-                    <br/><br/>
-                    <div class="col-3">
-                        User ID :
+                    
+                    <div class="row mb-3">
+                        <label for="name" class="col-3 col-form-label">Name :</label>
+                        <div class="col-9">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required />
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <input type="text" name="userid" class="form-control" required/>
+
+                    <div class="row mb-3">
+                        <label for="role" class="col-3 col-form-label">Role :</label>
+                        <div class="col-9">
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="0">User</option>
+                                <option value="14">Admin</option>
+                            </select>
+                        </div>
                     </div>
-                    <br/><br/>
-                    <div class="col-3">
-                        Name :
+
+                    <div class="row mb-3">
+                        <label for="password" class="col-3 col-form-label">Password :</label>
+                        <div class="col-9">
+                            <input type="text" name="password" id="password" class="form-control" placeholder="Enter Password (optional)" />
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <input type="text" name="name" class="form-control" required/>
+
+                    <div class="row mb-3">
+                        <label for="cardno" class="col-3 col-form-label">Card No :</label>
+                        <div class="col-9">
+                            <input type="text" name="cardno" id="cardno" class="form-control" placeholder="Enter Card No" required />
+                        </div>
                     </div>
-                    <br/><br/>
-                    <div class="col-3">
-                        Role :
+
+                    <div class="row mb-3">
+                        <div class="col-9 offset-3">
+                            <button type="submit" class="btn btn-success" style="width: 100%">Submit</button>
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <input type="text" name="role" class="form-control" required/>
-                    </div>
-                    <br/><br/>
-                    <div class="col-3">
-                        Password :
-                    </div>
-                    <div class="col-9">
-                        <input type="text" name="password" class="form-control" />
-                    </div>
-                    <br/><br/>
-                    <div class="col-3">
-                        Card No :
-                    </div>
-                    <div class="col-9">
-                        <input type="text" name="cardno" class="form-control" required/>
-                    </div>
-                    <br/><br/><br/>
-                    <div class="col-3"></div>
-                    <div class="col-9">
-                        <button type="submit" class="btn btn-success" style="width: 100%">Submit</button>
-                    </div>
-                  </div>
-                  </form>
-                </div>
+                </form>
+            </div>
+
             </div>
             
         </div>

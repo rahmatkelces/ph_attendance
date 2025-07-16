@@ -31,6 +31,9 @@ Route::post('/device-setuser', [MachineController::class, 'device_setuser'])->na
 Route::get('/device-removeuser-all', [MachineController::class, 'device_removeuser_all'])->name('machine.deviceremoveuserall');
 Route::get('/device-removeuser-single/{id}', [MachineController::class, 'device_removeuser_single'])->name('machine.deviceremoveusersingle');
 Route::get('/device-viewuser-single/[id]', [MachineController::class, 'device_viewuser_single'])->name('machine.deviceviewusersingle');
+
+Route::get('/device/user/{uid}/edit', [MachineController::class, 'editUser'])->name('machine.deviceeditusersingle');
+Route::post('/device/user/{uid}/update', [MachineController::class, 'updateUser'])->name('machine.deviceupdateusersingle');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
