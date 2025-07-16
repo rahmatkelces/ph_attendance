@@ -75,7 +75,7 @@
                     <a href="{{ route('machine.deviceshutdown') }}" class="btn btn-success btn-sm" style="margin: 5px">Shutdown device</a>
 
                     <a href="{{ route('machine.deviceadduser') }}" class="btn btn-success btn-sm" style="margin: 5px">Add user to device</a>
-                    <form action="http://127.0.0.1:8000/api/send-attendance-data" method="POST">
+                    <form action="http://localhost/api/send-attendance-data" method="POST">
     <button type="submit">Kirim Data</button>
 </form>
 
